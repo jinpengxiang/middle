@@ -1,0 +1,6 @@
+log:
+  path: /data/log
+
+spring:
+  application:
+    name: tm

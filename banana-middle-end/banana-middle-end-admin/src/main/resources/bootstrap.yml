@@ -1,0 +1,137 @@
+spring:
+  profiles: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.60.168:8848
+        file-extension: yml
+        group: middle
+        namespace: 4d7bee03-f46b-4f59-8d5a-cf0c367d9abf
+      discovery:
+        server-addr: 192.168.60.168:8848
+        namespace: 4d7bee03-f46b-4f59-8d5a-cf0c367d9abf
+        metadata:
+          user.name: ${spring.security.user.name}
+          user.password: ${spring.security.user.password}
+
+---
+
+spring:
+  profiles: local
+  cloud:
+    config:
+      name: ${spring.application.name},${spring.application.name}-${spring.profiles}
+      label: master
+      profile: '@project.root.artifactId@'
+      discovery:
+        enabled: true
+        service-id: config-server
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+    healthcheck:
+      enabled: true
+    # 每间隔s，向服务端发送一次心跳，证明"存活"
+    lease-renewal-interval-in-seconds: 8
+    # s没给服务器发送心跳代表已下线；服务器将提掉下线
+    lease-expiration-duration-in-seconds: 10
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.1.128:9500/eureka/
+
+---
+
+spring:
+  profiles: test
+  cloud:
+    config:
+      name: ${spring.application.name},${spring.application.name}-${spring.profiles}
+      label: master
+      profile: '@project.root.artifactId@'
+      discovery:
+        enabled: true
+        service-id: config-server
+
+eureka:
+  instance:
+    ip-address: 172.19.155.164
+    prefer-ip-address: true
+    instance-id: ${eureka.instance.ip-address}:${spring.application.name}:${server.port}
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+    healthcheck:
+      enabled: true
+    # 每间隔s，向服务端发送一次心跳，证明"存活"
+    lease-renewal-interval-in-seconds: 8
+    # s没给服务器发送心跳代表已下线；服务器将提掉下线
+    lease-expiration-duration-in-seconds: 10
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.ip-address}:9500/eureka/
+
+---
+
+spring:
+  profiles: beta
+  cloud:
+    config:
+      name: ${spring.application.name},${spring.application.name}-${spring.profiles}
+      label: master
+      profile: '@project.root.artifactId@'
+      discovery:
+        enabled: true
+        service-id: config-server
+
+eureka:
+  instance:
+    ip-address: 172.19.155.165
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+    healthcheck:
+      enabled: true
+    # 每间隔s，向服务端发送一次心跳，证明"存活"
+    lease-renewal-interval-in-seconds: 8
+    # s没给服务器发送心跳代表已下线；服务器将提掉下线
+    lease-expiration-duration-in-seconds: 10
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.ip-address}:9500/eureka/
+---
+
+spring:
+  profiles: prod
+  cloud:
+    config:
+      name: ${spring.application.name},${spring.application.name}-${spring.profiles}
+      label: master
+      profile: '@project.root.artifactId@'
+      discovery:
+        enabled: true
+        service-id: config-server
+
+eureka:
+  instance:
+    #    ip-address: 47.103.134.242
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+    healthcheck:
+      enabled: true
+    # 每间隔s，向服务端发送一次心跳，证明"存活"
+    lease-renewal-interval-in-seconds: 8
+    # s没给服务器发送心跳代表已下线；服务器将提掉下线
+    lease-expiration-duration-in-seconds: 10
+  client:
+    serviceUrl:
+      defaultZone: http://47.103.140.120:9500/eureka/,http://47.103.86.163:9500/eureka/

@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.banana</groupId>
+    <artifactId>banana-middle-end</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.SNAPSHOT</version>
+
+    <modules>
+        <module>banana-middle-end-common-util</module>
+        <module>banana-middle-end-common</module>
+        <module>banana-middle-end-admin</module>
+        <module>banana-middle-end-txlcn-tm</module>
+        <module>banana-middle-end-job</module>
+    </modules>
+
+    <parent>
+        <artifactId>banana-spring-boot-starter</artifactId>
+        <groupId>com.banana</groupId>
+        <version>1.0.6.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <spring-cloud-dependencies.version>Finchley.RELEASE</spring-cloud-dependencies.version>
+        <spring-boot-admin.version>2.0.3</spring-boot-admin.version>
+        <spring-cloud.version>2.0.3.RELEASE</spring-cloud.version>
+        <com.alibaba.version>1.2.13</com.alibaba.version>
+        <com.alibaba.druid.version>1.1.12</com.alibaba.druid.version>
+        <com.txlcn.version>5.0.5.RELEASE</com.txlcn.version>
+        <com.job.core.version>2.1.0</com.job.core.version>
+        <org.apache.commons.version>2.6.1</org.apache.commons.version>
+        <banana-spring-boot-starter.version>1.0.6.RELEASE</banana-spring-boot-starter.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.banana</groupId>
+                <artifactId>banana-spring-boot-starter</artifactId>
+                <version>${banana-spring-boot-starter.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-dependencies</artifactId>
+                <version>${spring-boot-admin.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.banana</groupId>
+                <artifactId>banana-common-spring-boot-starter</artifactId>
+                <version>${banana-spring-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.banana</groupId>
+                <artifactId>banana-swagger-spring-boot-starter</artifactId>
+                <version>${banana-spring-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.banana</groupId>
+                <artifactId>banana-log-spring-boot-starter</artifactId>
+                <version>${banana-spring-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.banana</groupId>
+                <artifactId>banana-mybatis-spring-boot-starter</artifactId>
+                <version>${banana-spring-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.banana</groupId>
+                <artifactId>banana-job-spring-boot-starter</artifactId>
+                <version>${banana-spring-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.banana</groupId>
+                <artifactId>banana-http-secret-spring-boot-starter</artifactId>
+                <version>${banana-spring-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.banana</groupId>
+                <artifactId>banana-cors-spring-boot-starter</artifactId>
+                <version>${banana-spring-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.banana</groupId>
+                <artifactId>banana-redis-spring-boot-starter</artifactId>
+                <version>${banana-spring-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.banana</groupId>
+                <artifactId>banana-i18n-spring-boot-starter</artifactId>
+                <version>${banana-spring-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.banana</groupId>
+                <artifactId>banana-APIException-spring-boot-starter</artifactId>
+                <version>${banana-spring-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.banana</groupId>
+                <artifactId>banana-lcn-spring-boot-starter</artifactId>
+                <version>${banana-spring-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.banana</groupId>
+                <artifactId>banana-feign-spring-boot-starter</artifactId>
+                <version>${banana-spring-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.banana</groupId>
+                <artifactId>banana-oss-spring-boot-starter</artifactId>
+                <version>${banana-spring-boot-starter.version}</version>
+            </dependency>
+
+            <!--<dependency>-->
+                <!--<groupId>com.banana</groupId>-->
+                <!--<artifactId>banana-amqp-spring-boot-starter</artifactId>-->
+                <!--<version>${banana-spring-boot-starter.version}</version>-->
+            <!--</dependency>-->
+
+            <!--<dependency>-->
+                <!--<groupId>com.banana</groupId>-->
+                <!--<artifactId>banana-bus-spring-boot-starter</artifactId>-->
+                <!--<version>${banana-spring-boot-starter.version}</version>-->
+            <!--</dependency>-->
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${com.alibaba.druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${org.apache.commons.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${com.alibaba.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${com.job.core.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.txlcn</groupId>
+                <artifactId>txlcn-logger</artifactId>
+                <version>${com.txlcn.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.txlcn</groupId>
+                <artifactId>txlcn-common</artifactId>
+                <version>${com.txlcn.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.txlcn</groupId>
+                <artifactId>txlcn-txmsg-netty</artifactId>
+                <version>${com.txlcn.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.txlcn</groupId>
+                <artifactId>txlcn-tc</artifactId>
+                <version>${com.txlcn.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.txlcn</groupId>
+                <artifactId>txlcn-txmsg</artifactId>
+                <version>${com.txlcn.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.banana</groupId>
+            <artifactId>banana-log-spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!--<distributionManagement>-->
+        <!--<repository>-->
+            <!--<id>nexus-releases</id>-->
+            <!--<name>Releases</name>-->
+            <!--<url>http://nexus3.hanyuan.vip:9081/repository/maven-releases</url>-->
+        <!--</repository>-->
+        <!--<snapshotRepository>-->
+            <!--<id>nexus-snapshots</id>-->
+            <!--<name>Snapshot</name>-->
+            <!--<url>http://nexus3.hanyuan.vip:9081/repository/maven-snapshots</url>-->
+        <!--</snapshotRepository>-->
+    <!--</distributionManagement>-->
+
+    <!--<repositories>-->
+        <!--<repository>-->
+            <!--<id>nexus-releases</id>-->
+            <!--<name>Nexus Repository</name>-->
+            <!--<url>http://nexus3.hanyuan.vip:9081/repository/maven-public/</url>-->
+            <!--<releases>-->
+                <!--<enabled>true</enabled>-->
+            <!--</releases>-->
+            <!--&lt;!&ndash;snapshots默认是关闭的,需要开启  &ndash;&gt;-->
+            <!--<snapshots>-->
+                <!--<enabled>true</enabled>-->
+            <!--</snapshots>-->
+        <!--</repository>-->
+    <!--</repositories>-->
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+
+        <plugins>
+            <!-- 聚合POM父级修复MVN INSTALL -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+            </plugin>
+
+            <!--<plugin>-->
+                <!--<groupId>org.codehaus.mojo</groupId>-->
+                <!--<artifactId>build-helper-maven-plugin</artifactId>-->
+                <!--<version>1.9.1</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>timestamp-property</id>-->
+                        <!--<goals>-->
+                            <!--<goal>timestamp-property</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+                <!--<configuration>-->
+                    <!--<name>current.time</name>-->
+                    <!--<pattern>yyyyMMdd-HHmmss</pattern>-->
+                    <!--<timeZone>GMT+8</timeZone>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>utf-8</encoding>
+                    <useDefaultDelimiters>true</useDefaultDelimiters>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

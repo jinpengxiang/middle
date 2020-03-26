@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: jobadmin
+log:
+  path: /data/log
