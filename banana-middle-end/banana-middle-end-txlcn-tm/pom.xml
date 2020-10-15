@@ -13,9 +13,11 @@
 
     <properties>
         <spring-cloud-starter-alibaba.version>0.9.0.RELEASE</spring-cloud-starter-alibaba.version>
+        <com.alibaba.cloud.version>2.1.2.RELEASE</com.alibaba.cloud.version>
         <maven.deploy.skip>true</maven.deploy.skip>
         <app.docker.skip>true</app.docker.skip>
         <app.docker.url></app.docker.url>
+        <docker.image.prefix></docker.image.prefix>
     </properties>
 
     <dependencies>
@@ -40,9 +42,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-            <version>${spring-cloud-starter-alibaba.version}</version>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <version>${com.alibaba.cloud.version}</version>
         </dependency>
 
         <dependency>
@@ -153,7 +155,7 @@
 
                 <configuration>
                     <skipDocker>${app.docker.skip}</skipDocker>
-                    <imageName>banana/${project.artifactId}</imageName>
+                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
                     <imageTags>
                         <imageTag>${project.version}</imageTag>
                     </imageTags>
@@ -166,6 +168,9 @@
                             <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
+
+                    <serverId>docker-hub</serverId>
+                    <registryUrl>https://index.docker.io/v1/</registryUrl>
                 </configuration>
             </plugin>
 
