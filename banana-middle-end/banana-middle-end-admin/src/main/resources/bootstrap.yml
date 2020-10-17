@@ -24,11 +24,11 @@ spring:
         server-addr: cloud-nacos.hanyuan.vip:30848
         file-extension: yml
         group: jpx
-        namespace: 717a5d70-a0ae-41fb-b682-4206b779a2c3
+        namespace: 365596ca-4f6d-49e0-b904-5ebec3709aaf
       discovery:
         server-addr: cloud-nacos.hanyuan.vip:30848
         group: jpx
-        namespace: 717a5d70-a0ae-41fb-b682-4206b779a2c3
+        namespace: 365596ca-4f6d-49e0-b904-5ebec3709aaf
 ---
 
 spring:
