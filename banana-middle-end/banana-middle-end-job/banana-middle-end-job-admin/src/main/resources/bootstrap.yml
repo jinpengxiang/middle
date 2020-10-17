@@ -18,14 +18,14 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: cloud-banana.hanyuan.vip:30848
+        server-addr: cloud-nacos.hanyuan.vip:30848
         file-extension: yml
         group: jpx
-        namespace: e2845b88-8a38-4c37-8369-8d6b048159ad
+        namespace: 717a5d70-a0ae-41fb-b682-4206b779a2c3
       discovery:
-        server-addr: cloud-banana.hanyuan.vip:30848
+        server-addr: cloud-nacos.hanyuan.vip:30848
         group: jpx
-        namespace: e2845b88-8a38-4c37-8369-8d6b048159ad
+        namespace: 717a5d70-a0ae-41fb-b682-4206b779a2c3
 
 ---
 
