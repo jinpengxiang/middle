@@ -18,12 +18,12 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: cloud-nacos-test.hanyuan.vip:30848
+        server-addr: cloud-nacos-test.hanyuan.vip:80
         file-extension: yml
         group: jpx
         namespace: 365596ca-4f6d-49e0-b904-5ebec3709aaf
       discovery:
-        server-addr: cloud-nacos-test.hanyuan.vip:30848
+        server-addr: cloud-nacos-test.hanyuan.vip:80
         group: jpx
         namespace: 365596ca-4f6d-49e0-b904-5ebec3709aaf
 
