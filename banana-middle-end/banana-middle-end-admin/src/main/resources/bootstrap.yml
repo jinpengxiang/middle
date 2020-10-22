@@ -23,12 +23,12 @@ spring:
       config:
         server-addr: cloud-nacos-test.hanyuan.vip:80
         file-extension: yml
-        group: jpx
-        namespace: 365596ca-4f6d-49e0-b904-5ebec3709aaf
+        group: test
+        namespace: 24dfaf91-0c36-45ba-8643-879775d49420
       discovery:
         server-addr: cloud-nacos-test.hanyuan.vip:80
-        group: jpx
-        namespace: 365596ca-4f6d-49e0-b904-5ebec3709aaf
+        group: test
+        namespace: 24dfaf91-0c36-45ba-8643-879775d49420
 ---
 
 spring:
