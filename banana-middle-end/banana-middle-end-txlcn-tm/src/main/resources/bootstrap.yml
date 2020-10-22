@@ -14,7 +14,7 @@ spring:
 ---
 
 spring:
-  profiles: jpx
+  profiles: test
   cloud:
     nacos:
       config:
