@@ -17,13 +17,6 @@
         <module>banana-middle-end-job</module>
     </modules>
 
-    <parent>
-        <artifactId>banana-spring-boot-starter</artifactId>
-        <groupId>com.banana</groupId>
-        <version>1.0.6.RELEASE</version>
-        <relativePath/>
-    </parent>
-
     <properties>
         <spring-cloud-dependencies.version>Finchley.RELEASE</spring-cloud-dependencies.version>
         <spring-boot-admin.version>2.0.3</spring-boot-admin.version>
@@ -33,8 +26,19 @@
         <com.txlcn.version>5.0.5.RELEASE</com.txlcn.version>
         <com.job.core.version>2.1.0</com.job.core.version>
         <org.apache.commons.version>2.6.1</org.apache.commons.version>
-        <banana-spring-boot-starter.version>1.0.6.RELEASE</banana-spring-boot-starter.version>
+        <banana-spring-boot-starter.version>1.0.0.RELEASE</banana-spring-boot-starter.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>github</id>
+            <url>https://raw.github.com/jinpengxiang/mvn-repo/master</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <dependencyManagement>
         <dependencies>

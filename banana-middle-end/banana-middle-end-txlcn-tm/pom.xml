@@ -17,6 +17,7 @@
         <maven.deploy.skip>true</maven.deploy.skip>
         <app.docker.skip>true</app.docker.skip>
         <app.docker.url></app.docker.url>
+        <app.docker.server.url></app.docker.server.url>
         <docker.image.prefix></docker.image.prefix>
     </properties>
 
@@ -128,13 +129,19 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.0.1.RELEASE</version>
                 <executions>
                     <execution>
                         <goals>
+                            <goal>repackage</goal>
                             <goal>build-info</goal>
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <fork>true</fork>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
             </plugin>
 
             <!--本地dockerfile构建镜像-->
@@ -169,8 +176,8 @@
                         </resource>
                     </resources>
 
-                    <serverId>docker-hub</serverId>
-                    <registryUrl>https://index.docker.io/v1/</registryUrl>
+                    <serverId>docker-harbor</serverId>
+                    <registryUrl>${app.docker.server.url}</registryUrl>
                 </configuration>
             </plugin>
 
