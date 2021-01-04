@@ -6,7 +6,7 @@ spring:
         server-addr: cloud-nacos-test.hanyuan.vip:80
         file-extension: yml
         group: jpx
-        namespace: 610d62b0-b2a9-4312-97c4-5462ee894017
+        namespace: 365596ca-4f6d-49e0-b904-5ebec3709aaf
       discovery:
         server-addr: cloud-nacos-test.hanyuan.vip:80
         #        group: dev
